@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"
+	type="text/css" />
+<!-- Font Awesome -->
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"
+	type="text/css" />
+<!-- NProgress -->
+<link th:href="@{/css/nprogress.css}" rel="stylesheet" type="text/css" />
+<!-- Animate.css -->
+<!-- <link th:href="../vendors/animate.css/animate.min.css" rel="stylesheet"> -->
+
+<!-- Custom Theme Style -->
+<link th:href="@{/css/custom.min.css}" rel="stylesheet" type="text/css" />
+</head>
+<body class="login">
+	<div>
+		<div class="login_wrapper">
+			<div class="animate form login_form">
+				<section class="login_content">
+					<form th:action="@{/login.html}" method="post">
+						<h1>Login Form</h1>
+						<div>
+							<input type="text" class="form-control" placeholder="Username"
+								required="required" name="username" id="username" />
+						</div>
+						<div>
+							<input type="password" class="form-control"
+								placeholder="Password" required="required" name="password"
+								id="password" />
+						</div>
+						<div>
+							<button type="submit" class="btn btn-default submit">Login</button>
+							<a class="reset_pass" href="#">Lost your password?</a>
+						</div>
+						<div class="clearfix"></div>
+						<div class="separator">
+							<div class="message">
+								<div
+									style="text-align: center; color: coral; font-style: italic;"
+									data-th-if="${param.error}"
+									class="alert alert-danger error_msg">Invalid username and
+									password</div>
+								<div
+									style="text-align: center; color: coral; font-style: italic;"
+									data-th-if="${param.logout}"
+									class="alert alert-success error_msg">You have been
+									logged out</div>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
